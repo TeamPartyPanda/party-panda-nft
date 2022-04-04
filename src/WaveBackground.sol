@@ -17,9 +17,13 @@ contract WaveBackground is ERC721PayableMintable, IERC4883 {
     mapping(uint256 => bytes3) private _colours;
 
     int256 public immutable zIndex;
+    uint256 public immutable width;
+    uint256 public immutable height;
 
     constructor() ERC721PayableMintable("Wave Background", "WAVE", 0 ether, 42, 42) {
         zIndex = -100;
+        width = 288;
+        height = 288;
     }
 
     function supportsInterface(bytes4 interfaceId)

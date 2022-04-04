@@ -37,7 +37,7 @@ contract PartyPanda is ERC721PayableMintableComposableSVG, NamedToken {
     string constant NAME = "Party Panda";
 
     constructor()
-        ERC721PayableMintableComposableSVG(NAME, "PRTY", 0.000888 ether, 88, 888, 0)
+        ERC721PayableMintableComposableSVG(NAME, "PRTY", 0.000888 ether, 88, 888, 0, 288, 288)
         NamedToken(NAME)
     {}
 

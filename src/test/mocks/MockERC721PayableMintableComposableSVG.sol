@@ -14,6 +14,8 @@ contract MockERC721PayableMintableComposableSVG is
     uint256 public constant SUPPLY_CAP = 888;
 
     int256 public constant Z_INDEX = 0;
+    uint256 public constant WIDTH = 288;
+    uint256 public constant HEIGHT = 288;
 
     string public constant TOKEN_URI = "TOKEN_URI";
     string public constant RENDER = "RENDER";
@@ -25,7 +27,9 @@ contract MockERC721PayableMintableComposableSVG is
             PRICE,
             OWNER_ALLOCATION,
             SUPPLY_CAP,
-            Z_INDEX
+            Z_INDEX,
+            WIDTH,
+            HEIGHT
         )
     {}
 

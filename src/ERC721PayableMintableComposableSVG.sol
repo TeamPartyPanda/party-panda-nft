@@ -39,6 +39,8 @@ abstract contract ERC721PayableMintableComposableSVG is
     event ComposableRemoved(uint256 tokenId, address composableToken, uint256 composableTokenId);
 
     int256 public immutable zIndex;
+    uint256 public immutable width;
+    uint256 public immutable height;
 
     struct Token {
         address tokenAddress;
@@ -58,7 +60,9 @@ abstract contract ERC721PayableMintableComposableSVG is
         uint256 price_,
         uint256 ownerAllocation_,
         uint256 supplyCap_,
-        int256 z
+        int256 z,
+        uint256 width_,
+        uint256 height_
     )
         ERC721PayableMintable(
             name_,
@@ -69,6 +73,8 @@ abstract contract ERC721PayableMintableComposableSVG is
         )
     {
         zIndex = z;
+        width = width_;
+        height = height_;
     }
 
     function supportsInterface(bytes4 interfaceId)
