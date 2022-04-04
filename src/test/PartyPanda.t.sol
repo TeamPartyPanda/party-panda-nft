@@ -59,10 +59,10 @@ contract PartyPandaTest is DSTest {
 
     /// Render
 
-    function testRender() public {
+    function testRenderTokenById() public {
         token.mint{value: PAYMENT}();
 
-        emit log_string(token.render(0));
+        emit log_string(token.renderTokenById(0));
     }
 
     /// Token Naming
@@ -115,7 +115,7 @@ contract PartyPandaTest is DSTest {
         );
         composable.mint();
 
-        string memory renderedToken = token.render(0);
+        string memory renderedToken = token.renderTokenById(0);
 
         composable.safeTransferFrom(
             address(this),
@@ -125,7 +125,7 @@ contract PartyPandaTest is DSTest {
         );
 
         assertTrue(
-            keccak256(abi.encodePacked(token.render(0))) !=
+            keccak256(abi.encodePacked(token.renderTokenById(0))) !=
                 keccak256(abi.encodePacked(renderedToken))
         );
         assertEq(composable.ownerOf(0), address(token));
@@ -162,7 +162,7 @@ contract PartyPandaTest is DSTest {
         );
         composable.mint();
 
-        string memory renderedToken = token.render(0);
+        string memory renderedToken = token.renderTokenById(0);
 
         composable.safeTransferFrom(
             address(this),
@@ -172,7 +172,7 @@ contract PartyPandaTest is DSTest {
         );
 
         assertTrue(
-            keccak256(abi.encodePacked(token.render(0))) !=
+            keccak256(abi.encodePacked(token.renderTokenById(0))) !=
                 keccak256(abi.encodePacked(renderedToken))
         );
         assertEq(composable.ownerOf(0), address(token));
@@ -203,7 +203,7 @@ contract PartyPandaTest is DSTest {
     function testAddForegroundAndBackground() public {
         token.mint{value: PAYMENT}();
 
-        string memory renderedToken = token.render(0);
+        string memory renderedToken = token.renderTokenById(0);
 
         MockERC721ComposableSVG foreground = new MockERC721ComposableSVG(1);
         foreground.mint();
@@ -224,7 +224,7 @@ contract PartyPandaTest is DSTest {
         );
 
         assertTrue(
-            keccak256(abi.encodePacked(token.render(0))) !=
+            keccak256(abi.encodePacked(token.renderTokenById(0))) !=
                 keccak256(abi.encodePacked(renderedToken))
         );
         assertEq(foreground.ownerOf(0), address(token));

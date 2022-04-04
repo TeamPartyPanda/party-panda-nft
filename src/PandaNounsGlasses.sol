@@ -11,6 +11,12 @@ import {Bytes} from "./libraries/Bytes.sol";
 import {IERC4883} from "./IERC4883.sol";
 import {ERC721PayableMintable} from "./ERC721PayableMintable.sol";
 
+// ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  
+// 
+// █▀█ ▄▀█ █▄░█ █▀▄ ▄▀█   █▄░█ █▀█ █░█ █▄░█ █▀   █▀▀ █░░ ▄▀█ █▀ █▀ █▀▀ █▀
+// █▀▀ █▀█ █░▀█ █▄▀ █▀█   █░▀█ █▄█ █▄█ █░▀█ ▄█   █▄█ █▄▄ █▀█ ▄█ ▄█ ██▄ ▄█
+// 
+// ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  ⌐◨-◨  
 contract PandaNounsGlasses is ERC721PayableMintable, IERC4883 {
     using Colours for bytes3;
 
@@ -21,11 +27,15 @@ contract PandaNounsGlasses is ERC721PayableMintable, IERC4883 {
     mapping(uint256 => bytes3) private _colours;
 
     int256 public immutable zIndex;
+    uint256 public immutable width;
+    uint256 public immutable height;
 
     constructor()
         ERC721PayableMintable("Panda Nouns Glasses", "PNG", 0.00009999 ether, 99, 9999)
     {
         zIndex = 100;
+        width = 288;
+        height = 288;
     }
 
     function supportsInterface(bytes4 interfaceId)
@@ -132,15 +142,15 @@ contract PandaNounsGlasses is ERC721PayableMintable, IERC4883 {
             '<svg id="',
             "nounsglasses",
             Strings.toString(tokenId),
-            '" viewBox="0 0 288 288" xmlns="http://www.w3.org/2000/svg">',
-            render(tokenId),
+            '" width="288" height="288" viewBox="0 0 288 288" xmlns="http://www.w3.org/2000/svg">',
+            renderTokenById(tokenId),
             "</svg>"
         );
 
         return svg;
     }
 
-    function render(uint256 tokenId)
+    function renderTokenById(uint256 tokenId)
         public
         view
         override

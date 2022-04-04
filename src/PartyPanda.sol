@@ -9,6 +9,22 @@ import {IERC4883} from "./IERC4883.sol";
 import {ERC721PayableMintableComposableSVG} from "./ERC721PayableMintableComposableSVG.sol";
 import {NamedToken} from "./NamedToken.sol";
 
+// ██████╗░░█████╗░██████╗░████████╗██╗░░░██╗██████╗░░█████╗░███╗░░██╗██████╗░░█████╗░
+// ██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝╚██╗░██╔╝██╔══██╗██╔══██╗████╗░██║██╔══██╗██╔══██╗
+// ██████╔╝███████║██████╔╝░░░██║░░░░╚████╔╝░██████╔╝███████║██╔██╗██║██║░░██║███████║
+// ██╔═══╝░██╔══██║██╔══██╗░░░██║░░░░░╚██╔╝░░██╔═══╝░██╔══██║██║╚████║██║░░██║██╔══██║
+// ██║░░░░░██║░░██║██║░░██║░░░██║░░░░░░██║░░░██║░░░░░██║░░██║██║░╚███║██████╔╝██║░░██║
+// ╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░░░╚═╝░░░╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═╝░░╚═╝
+//
+//  _____________
+// < Party Panda >
+//  -------------
+//         \   ^__^
+//          \  (oo)\_______
+//             (__)\       )\/\
+//                 ||----w |
+//                 ||     ||
+//
 contract PartyPanda is ERC721PayableMintableComposableSVG, NamedToken {
     using Colours for bytes3;
 
@@ -21,7 +37,7 @@ contract PartyPanda is ERC721PayableMintableComposableSVG, NamedToken {
     string constant NAME = "Party Panda";
 
     constructor()
-        ERC721PayableMintableComposableSVG(NAME, "PRTY", 0.000888 ether, 88, 888, 0)
+        ERC721PayableMintableComposableSVG(NAME, "PRTY", 0.000888 ether, 88, 888, 0, 288, 288)
         NamedToken(NAME)
     {}
 
@@ -130,7 +146,7 @@ contract PartyPanda is ERC721PayableMintableComposableSVG, NamedToken {
             "panda",
             Strings.toString(tokenId),
             '" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">',
-            render(tokenId),
+            renderTokenById(tokenId),
             "</svg>"
         );
 
@@ -150,7 +166,7 @@ contract PartyPanda is ERC721PayableMintableComposableSVG, NamedToken {
         return
             string.concat(
                 '<g id="panda">'
-                '<!--Copyright 2022 Alex Party Panda https://github.com/AlexPartyPanda-->'
+                '<desc>Party Panda is Copyright 2022 by Alex Party Panda https://github.com/AlexPartyPanda</desc>'
                 '<path d="M97.5 183.5c-22.878-11.248-31.543-10.843-37 6 1.297 16.917 3.99 21.712 11 25 10.177 4.886 38.421-1.909 71-6.5 45.864 5.702 75.701 9.828 81.5 6.5 8.506-5.407 11.972-9.787 11-25-8.153-11.761-13.16-16.601-26-9.5l-16-8.5-95.5 12Z" fill="',colourValue, '" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
                 '<path d="m115 205.5-4.5-41h57v45c-16.505 5.452-33.861 9.59-52.5-4Z" fill="#FFF" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
                 '<path d="M124 215c-6.408 1.507-33.142 12.135-39-4 .419-11.525 1.364-21.559 3.647-31.5 3.406-14.829 9.792-29.45 21.853-48.5 27.727 17.26 40.773 13.3 68.5.5 12.01 17.087 19.173 31.974 19.093 44.5-.027 4.215 1.002 8.615 0 13.5 0 0-1.593 9.5-1.593 21.5s-32.5 15.5-36 0-1.276-7.912 3.5-35c-14.577-2.983-24.32-2.712-43.5 0 2.845 4.885 9.908 37.493 3.5 39Zm36.5-143.5c18.121-8.994 17.214-.228 16.5 20.5l-16.5-20.5Zm-52.5 14c-2.876-17.522 1.048-21.717 18-16.5l-18 16.5Z" fill="',colourValue, '" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
@@ -164,7 +180,7 @@ contract PartyPanda is ERC721PayableMintableComposableSVG, NamedToken {
             );
     }
 
-    function render(uint256 tokenId)
+    function renderTokenById(uint256 tokenId)
         public
         view
         override

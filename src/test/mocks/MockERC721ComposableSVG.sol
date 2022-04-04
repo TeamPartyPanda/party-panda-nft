@@ -7,9 +7,13 @@ import {IERC4883} from "../../IERC4883.sol";
 
 contract MockERC721ComposableSVG is ERC721, IERC4883 {
     int256 public immutable zIndex;
+    uint256 public immutable width;
+    uint256 public immutable height;
 
     constructor(int256 z) ERC721("Mock Composable", "MC") {
         zIndex = z;
+        width = 288;
+        height = 288;
     }
 
     function supportsInterface(bytes4 interfaceId)
@@ -36,7 +40,7 @@ contract MockERC721ComposableSVG is ERC721, IERC4883 {
         _mint(msg.sender, totalSupply);
     }
 
-    function render(uint256 tokenId) public view returns (string memory) {
+    function renderTokenById(uint256 id) public view returns (string memory) {
         return '<g id="mock"></g>';
     }
 }

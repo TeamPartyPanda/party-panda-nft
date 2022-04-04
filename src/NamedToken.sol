@@ -36,8 +36,6 @@ contract NamedToken {
     function _changeTokenName(uint256 tokenId, string memory newTokenName)
         internal
     {
-        //if (!_exists(tokenId)) revert NonexistentToken();
-        //if (_msgSender() != ownerOf[tokenId]) revert NotTokenOwner();
         if (!validateTokenName(newTokenName)) revert InvalidTokenName();
 
         _names[tokenId] = newTokenName;
