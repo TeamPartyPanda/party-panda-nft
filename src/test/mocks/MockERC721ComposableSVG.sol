@@ -36,7 +36,7 @@ contract MockERC721ComposableSVG is ERC721, IERC4883 {
         _mint(msg.sender, totalSupply);
     }
 
-    function render(uint256 tokenId) public view returns (string memory) {
+    function renderTokenById(uint256 id) public view returns (string memory) {
         return '<g id="mock"></g>';
     }
 }

@@ -63,10 +63,10 @@ contract PandaNounsGlassesTest is DSTest {
 
     /// Render
 
-    function testRender() public {
+    function testRenderTokenById() public {
         token.mint{value: PAYMENT}();
 
-        emit log_string(token.render(0));
+        emit log_string(token.renderTokenById(0));
     }
 
     /// Compose

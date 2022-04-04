@@ -125,14 +125,14 @@ contract WaveBackground is ERC721PayableMintable, IERC4883 {
             "wave",
             Strings.toString(tokenId),
             '" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">',
-            render(tokenId),
+            renderTokenById(tokenId),
             "</svg>"
         );
 
         return svg;
     }
 
-    function render(uint256 tokenId)
+    function renderTokenById(uint256 tokenId)
         public
         view
         override

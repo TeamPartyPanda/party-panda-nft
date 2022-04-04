@@ -6,5 +6,5 @@ import {IERC165} from "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 interface IERC4883 is IERC165 {
     function zIndex() external view returns (int256);
 
-    function render(uint256 tokenId) external view returns (string memory);
+    function renderTokenById(uint256 id) external view returns (string memory);
 }

@@ -33,7 +33,7 @@ contract MockERC721PayableMintableComposableSVG is
         return TOKEN_URI;
     }
 
-    function render(uint256 tokenId) external view returns (string memory) {
+    function renderTokenById(uint256 id) external view returns (string memory) {
         return RENDER;
     }
 

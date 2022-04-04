@@ -92,7 +92,7 @@ abstract contract ERC721PayableMintableComposableSVG is
 
         if (composables[tokenId].background.tokenAddress != address(0)) {
             background = IERC4883(composables[tokenId].background.tokenAddress)
-                .render(composables[tokenId].background.tokenId);
+                .renderTokenById(composables[tokenId].background.tokenId);
         }
 
         return background;
@@ -107,7 +107,7 @@ abstract contract ERC721PayableMintableComposableSVG is
 
         if (composables[tokenId].foreground.tokenAddress != address(0)) {
             foreground = IERC4883(composables[tokenId].foreground.tokenAddress)
-                .render(composables[tokenId].foreground.tokenId);
+                .renderTokenById(composables[tokenId].foreground.tokenId);
         }
 
         return foreground;

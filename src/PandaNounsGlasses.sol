@@ -133,14 +133,14 @@ contract PandaNounsGlasses is ERC721PayableMintable, IERC4883 {
             "nounsglasses",
             Strings.toString(tokenId),
             '" viewBox="0 0 288 288" xmlns="http://www.w3.org/2000/svg">',
-            render(tokenId),
+            renderTokenById(tokenId),
             "</svg>"
         );
 
         return svg;
     }
 
-    function render(uint256 tokenId)
+    function renderTokenById(uint256 tokenId)
         public
         view
         override
